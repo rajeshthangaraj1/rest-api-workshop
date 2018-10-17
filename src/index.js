@@ -4,6 +4,7 @@ let personRoute = require('./routes/person')
 let path = require('path')
 let bodyParser = require('body-parser')
 let customerRoute = require('./routes/customer')
+let locationRoute = require('./routes/locations')
 
 
 app.use(bodyParser.json())
@@ -16,8 +17,9 @@ app.use((req,res,next)=> {
 
 app.use(personRoute)
 app.use(customerRoute)
-app.use(express.static('public'))
+app.use(locationRoute)
 
+app.use(express.static('public'))
 
 /* error handler 404 */
 app.use((req,res,next)=> {

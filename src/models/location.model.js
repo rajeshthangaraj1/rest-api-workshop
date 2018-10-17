@@ -7,15 +7,12 @@ const password = 'mongo_learn1'
 
 mongoose.connect(`mongodb://${user}:${password}@${server}/${database}`)
 
-let CustomerSchema = new Schema({
-  name: String,
-  email: {
-    type: String,
-    required: true,
-    unique: true
-  },
-  password: String,
-  contact: String,
+let LocationsSchema = new Schema({
+  lat: String,
+  lng: String,
+  description: String,
+  username: String,
+  location_status: String,
 })
 
-module.exports = mongoose.model('users', CustomerSchema)
+module.exports = mongoose.model('locations', LocationsSchema)
